@@ -1,0 +1,597 @@
+OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+I-00347-01-01_SysTS01 07-
+Oct-2023
+Onboard Charger
+System Test Strategy
+(SysTS)
+3.4
+AUT_SYS_06F/1.0/02-May-19
+DOCUMENT HISTORY
+012345
+0Ver. Rel.\nNoRelease DateMod. By Mod.\nDtRev. By\nRelevant\nStakeholders\nRev. Dt.A
+uth By\nAuth Dt.Remarks
+11.020-Mar-20Prasanth GaraAnupamaVasudeva\nRaoTest Strategy prepared based upon\
+nthe project artifacts and MOM.
+21.020-Mar-2020-Mar-2020-Mar-2020-Mar-20Test Strategy prepared based upon\nthe proj
+ect artifacts and MOM.
+31.1 SarvananHarsha/Murali Testing approach for System\nIntegration & System Qualificati
+on \nis updated
+41.1 22-Dec-2022-Dec-20 Testing approach for System\nIntegration & System Qualification
+\nis updated
+51.2 SarvananHarsha/Murali Review comments fixed and ready\nfor WPA
+61.2 22-Dec-202-Jan-21 Review comments fixed and ready\nfor WPA
+71.3 SarvananMaheswari No Audit comments and Ready for\nBaseline
+81.3 22-Dec-2004-Jan-2021 No Audit comments and Ready for\nBaseline
+92.004-Jan-2021SarvananMaheswariAnupamaBaselined
+102.004-Jan-202122-Dec-2004-Jan-202104-jan-2021Baselined
+112.1 Saravanan Section 5.0: Testing approach\nupdated for module wise testing and\nSect
+ion 6.0: release plan is updated\nfor module wise
+122.1 25-Feb-21 Section 5.0: Testing approach\nupdated for module wise testing and\nSecti
+on 6.0: release plan is updated\nfor module wise
+132.2 SaravananMurali Review done and ready for WPA
+142.2 25-Feb-213-Mar-21 Review done and ready for WPA
+152.3 SaravananSumita WPA done and ready for baseline
+162.3 25-Feb-2105-Mar-21 WPA done and ready for baseline
+172.4 Saravanan Updated Regression testing and
+1 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+Random testing strategy in section
+012345
+0 06-April-21
+12.5 SaravananVignesh No review comments(refer review log\nver 207) and ready for WPA
+22.5 06-April-2106-April-21 No review comments(refer review log\nver 207) and ready for W
+PA
+32.6 SaravananSumita WPA is done and ready for Baseline
+42.6 06-April-2107-April-21 WPA is done and ready for Baseline
+52.7 Saravanan Section 5.0: Testing approach\nupdated for high level diagram for\nphase L
+V and HV ready for review
+62.7 21-April-21 Section 5.0: Testing approach\nupdated for high level diagram for\nphase L
+V and HV ready for review
+72.8 SaravananMurali No review comments and ready for\nWPA
+82.8 21-April-2121-April-21 No review comments and ready for\nWPA
+92.9 SaravananSumita WPA done and ready for baseline
+102.9 21-April-2123-April-21 WPA done and ready for baseline
+113.024-April-21SaravananSumitaAnupamaBaselined
+123.024-April-2121-April-2123-April-2123-April-21Baselined
+133.116-Feb-2023SaravananAnupama, FathimaAnupamaupdated project training skills se
+ction\n9\nbaselined
+143.116-Feb-202315-Feb-2315-Feb-2315-Feb-23updated project training skills section\n9\
+nbaselined
+153.228-July-23SaravananAnupamaAnupamaUpdated Release plan section3 as\nper CR
+change request. updated\nProject specific skill matrix section 9. \nAll Review comments from t
+he\nreviewer were updated.\nAs there were no comments, the\ndocument can be baselined.
+163.228-July-2325-July-2327-July-2327-July-23Updated Release plan section3 as\nper CR
+change request. updated\nProject specific skill matrix section 9. \nAll Review comments from t
+he\nreviewer were updated.\nAs there were no comments, the\ndocument can be baselined.
+173.312-Sept-23FathimaNisargAnupamaupdated Project specific skill matrix section 9.\nup
+dated Suspension and resumption criteria\nsection 2.2 and 2.3.
+183.312-Sept-2311-Sept-2311-Sept-2312-Sept-23updated Project specific skill matrix secti
+on 9.\nupdated Suspension and resumption criteria\nsection 2.2 and 2.3.
+193.407- Oct-23NisargFathimaAnupamaUpdated System integration Success\ncriteria Sec
+2.1 & and preconditions Sec 1.2\nupdated Release based Testing section 3 as\nper pre asses
+sment review findings
+NOTE: Configuration history is maintained in the cover page until calendar year 2020 and subsequently would be maintained on
+Polarion that follows the version no. labelling as per Polarion.
+2 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+Table of contents
+1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.1 Scope and Overview . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2 Assumption, Constraint & Limitations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2.1 Assumption . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2.2 Constraint . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2.3 Limitations: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+1.2.4 Precondition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2 System Verification Strategy: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.1 System Integration Strategy: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.2 System Integration Test Strategy: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+2.3 System Qualification Test Strategy: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+3 Release based Testing. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+4 Support Process . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+4.1 Quality Assurance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+4.2 Peer Reviews . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+4.3 Risk Management . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+4.4 Defect Management . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+5 Performing Testing & Communication of Test Results . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+6 Deliverables to the Customer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+7 Lessons Learnt & Best Practices . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+8 Data Collection & Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+9 Project Specific Skill Matrix . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+10 Reference Documents . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+10.1 Glossary of terms used. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+1 Introduction
+1.1 Scope and Overview
+This document defines the strategy and approach for System integration(Sys.4), System integration test(Sys.4) and System
+qualification test(Sys.5) of On-Board EV Charger.
+1.2 Assumption, Constraint & Limitations
+1.2.1 Assumption
+NA
+1.2.2 Constraint
+NA
+1.2.3 Limitations:
+Current cannot be tested more than 127A for 5 sec. (Limitation at product level for Phase1 LV Enhancement)
+1.2.4 Precondition
+Testing Tools and setups need to be available.
+CANoe tool (Node Simulated) configuration file need to be available from development team.
+3 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+2 System Verification Strategy:
+2.1 System Integration Strategy:
+01
+0ScopeSystem Integration Strategy shall be performed for On Board EV Charger Project bas
+ed on the system\nArchitecture design of the following system elements sequentially integrated
+into the system.\nPhase 1 -LV & Phase-1-LV_Enhancement01 (Enhancement details are desc
+ribed in PMP Sec 3.1\n1.\n(I-00347-01-01_PMP01.doc) - control board connect to LLC board.\
+nPhase 1-HV- Grid board, control board connect to LLC board\n2.
+1ObjectivesDefine the objectives for System Integration:\nSequentially hardware and software
+systems/sub-systems are integrated together to test the\n1.\ndeveloped software integrated o
+n the hardware component for hardware-software integration.\nVerify that the integrated syste
+m is consistent with the System architectural design\n2.
+2System ItemsPhase 1 -LV & Phase-1-LV_Enhancement01-Hardware (Connection of Hardw
+are parts that is\nintegrated to form one or more functions like Power supply, LLC board, Contr
+ol Board, J2-J2 connectors,\nLED, Auto Transformer, coolant) and Software Integrated System
+.\nPhase 1-HV- Hardware (Connection of Hardware parts that is integrated to form one or more
+functions\nlike Power supply, LLC board, Grid Board, Control Board, J2-J2 connectors, LED, A
+uto Transformer,\ncoolant) and Software Integrated System.
+3InputSystem Architecture Design
+4System integration\nsequence and\nacceptance criteriaIntegration Sequence:\na) Connect L
+V bat to power supply circuit\nb) Connect power supply to Gate driver, sensing circuit and SBC
+\nc) SBC will power up the microcontroller \nd) Connect DC-DC controller to DC-DC converter
+1(HV bat) for charging\ne) Connect DC-DC controller to DC-DC converter2(LV Bat) for chargin
+g \nf) Connect AFC controller to AFC+APD\ng) Connect AFC to Grid through SAEJ1772 conne
+ctor\nh) Connect Aux load to LV battery\nAcceptance criteria:\n1.\nConfirm the power connecti
+on after step "a" \nConfirm for continuity check on the hardware after step "b"\n2.\nVerify Vcc t
+o Microcontroller along with SPI interface (microcontroller should be with basic\n3.\nsoftware fl
+ashed) after step "c"
+4 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+4. Board bringup activity after step "c"
+5. Measure the signal on board for DC-DC conversion for HV & LV after step "d" & step "e"
+6. Continuity check for signal flow after step "f" upto Step "h"
+success criteria:
+1. “a to c”, “h” - The LED should blink when the power is ON.
+2. “d to f” - Verification can be done through CAN communication.
+3. “g” - General connectivity should be established through the Control Pilot
+01
+0Integration\nEnvironmentVerify HV and LV batteries are not in charging state.
+1Integration\nEntry/Exit CriteriaEntry criteria:\nSoftware & Hardware qualification tests (modul
+e testing) have been completed successfully to\ndemonstrate readiness for system integration.
+\nSuccessful completion of HW Module testing.\nBaselined System Architecture Document\nU
+pdated traceability record.\nExit criteria:\nSoftware-Hardware systems and subsystems are inte
+grated for system Integration testing.\nvisual inspection of all the connections of integration and
+verify the control board and power board\nare receiving the required power through multimeter
+.\nBaselined HSI document.
+2Completion Criteria\nfor each Integration\nStepWhen these components are integrated on b
+oard, then the board should be connected with coolant.
+3Integration\nTechniquesSoftware-Hardware Integration can be done based on HW availibilit
+y and Power sequence defined in Sys\nAD document \nI-00347-01-01_SysAD01
+4Other Customer or\nproject specific\nrequirementsNA
+2.2 System Integration Test Strategy:
+01
+0ScopeSystem Integration test shall be performed for On Board EV Charger project based on
+the system design\nof the following system elements integrated into the system.\nPhase 1 -LV
+& Phase 1-LV_Enhancement01- control board connect to LLC board- Test cases\n1.\nselecte
+d as per release plan (I-00347-01-01_RP01.xlsx)\nPhase 1-HV- Grid board, control board conn
+ect to LLC board.(Test cases will be selected as per\n2.\nrelease plan (I-00347-01-01_RP01.xl
+sx)\nTesting type will be Manual testing.
+1Test ObjectivesTo ensure that the system items are tested to provide evidence for complian
+ce of the integrated system\nitems with the system architectural design \nI-00347-01-01_SysA
+D01
+2Test ItemsPhase 1 -LV & Phase 1-LV_Enhancement01- LLC board, Control board, Resistive
+load, Auto\nTransformer, Power supply and Software Integrated System\nPhase 1-HV- LLC b
+oard, Control board, Resistive load, Grid board, Auto Transformer, Power supply and\nSoftwar
+5 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+012345678910
+0Test InputSystem Architecture Design \nI-00347-01-01_SysAD01 \nIntegrated System\nSyst
+em Integration test plan \nI-00347-01-01_SysITP01 \nRelease Plan (I-00347-01-01_RP01.xlsx
+)System Architecture Design \nI-00347-01-01_SysAD01 \nIntegrated System\nSystem Integra
+tion test plan \nI-00347-01-01_SysITP01 \nRelease Plan (I-00347-01-01_RP01.xlsx)System A
+rchitecture Design \nI-00347-01-01_SysAD01 \nIntegrated System\nSystem Integration test pl
+an \nI-00347-01-01_SysITP01 \nRelease Plan (I-00347-01-01_RP01.xlsx)System Architecture
+Design \nI-00347-01-01_SysAD01 \nIntegrated System\nSystem Integration test plan \nI-0034
+7-01-01_SysITP01 \nRelease Plan (I-00347-01-01_RP01.xlsx)System Architecture Design \nI-
+00347-01-01_SysAD01 \nIntegrated System\nSystem Integration test plan \nI-00347-01-01_Sy
+sITP01 \nRelease Plan (I-00347-01-01_RP01.xlsx)System Architecture Design \nI-00347-01-0
+1_SysAD01 \nIntegrated System\nSystem Integration test plan \nI-00347-01-01_SysITP01 \nR
+elease Plan (I-00347-01-01_RP01.xlsx)System Architecture Design \nI-00347-01-01_SysAD0
+1 \nIntegrated System\nSystem Integration test plan \nI-00347-01-01_SysITP01 \nRelease Pla
+n (I-00347-01-01_RP01.xlsx)System Architecture Design \nI-00347-01-01_SysAD01 \nIntegra
+ted System\nSystem Integration test plan \nI-00347-01-01_SysITP01 \nRelease Plan (I-00347-
+01-01_RP01.xlsx)System Architecture Design \nI-00347-01-01_SysAD01 \nIntegrated System
+\nSystem Integration test plan \nI-00347-01-01_SysITP01 \nRelease Plan (I-00347-01-01_RP0
+1.xlsx)System Architecture Design \nI-00347-01-01_SysAD01 \nIntegrated System\nSystem I
+ntegration test plan \nI-00347-01-01_SysITP01 \nRelease Plan (I-00347-01-01_RP01.xlsx)
+1System integration\ntesting sequence
+2System integration\ntesting sequence
+3System integration\ntesting sequence
+4System integration\ntesting sequence
+5System integration\ntesting sequence
+6System integration\ntesting sequence
+7System integration\ntesting sequence
+8System integration\ntesting sequence
+6 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+9. connect the oscilloscope and probe on testing port pin to take the waveforms.
+10.Open canoe panel to send CAN messages and observed ack message in trace window.
+11.The CAN message and ack will be logged in log file.
+12.Update the test plan with results and circulate to stake holder through mail & upload in SVN.
+13.Record the identified bug’s (if any) in bug report and share to the respective stake holders.
+14.The related regression testing which covers the integration of LV and HV module will be carried out as
+per the changes or bug fixes and their impact
+15. Test report will be shared to respective stakeholder.
+01
+0Test EnvironmentSoftware Test Environment: Fully (All SW components/ features) impleme
+nted software interfaced with\nCANoe panel (CAN license on need basis).\nHardware Test env
+ironment: Complete custom hardware set up with the 220V power supply interface\nwith the int
+egrated OBEVC SW\nRefer Sys_Integration_test_procedure
+1Test ToolsCANoe Ver 8.2/Pcan,\nLauterbauch debugger,\nClamp meter\nPower supplier\no
+scilloscope\nMultimeter\nTemperature chamber\nFlow meter\nAutotransformer/ AC Programm
+able Source\nResistive Load to simulate battery.
+2Test Phase\nEntry/Exit CriteriaEntry criteria:\n The availability of a test environment accordi
+ng to requirements.\n• The availability of baselined “. elf file” (firmware) should be taken as bas
+eline for this testing.\n• The availability of tools, documentation, configuration parameters for S
+ystem Integration Testing.\n• The availability of baselined System Architecture Design for syste
+m integration testing.\n• The availability of HSI (Hardware-Software Interface) document for wri
+ting test plan.\n• The availability of CANoe Configuration File (with required. dbc file and simula
+tion setup).\nExit criteria:\n100% test execution as per System Architecture Design w.r.t Relea
+se Plan/Milestone.\n1.\n100% Test cases are passed.\n2.\nSystem Integration Test report.\n3.\
+nTraceability Report\n4.\nUpdated Review Checklist & Review Log\n5.\nNote: if any Defects
+is reported will be handled by Problem Resolution Management.\n Justification should
+be provided if Test Execution Rate is less than 100%
+3Design TechniquesThe following design techniques as defined in Test guidelines (Refer Ref
+erence document section) shall\nbe considered for designing the integration test cases:\nBoun
+dary Value Analysis (BVA)\n1.\nError Based Testing/Fault injection based testing\n2.\nInput O
+utput Domain\n3.
+7 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+Types of Tests Below tests shall be performed as part of the system integration test:
+1. Full Integration
+2. Incremental testing (as applicable)
+3. Regression testing
+01
+0Suspension and\nResumption CriteriaIf issues are detected, all the test cases and test script
+s will run. However, the test phase shall be\nsuspended / aborted if:\nSeveral critical failures ar
+e observed.\n1.\nThe test environment has issues.\n2.\nUnavailability of related or external de
+pendency during system integration test execution like Test\n3.\nbench capability.\nWhen a de
+fect is introduced that cannot allow any further testing.\n4.\nResumption
+criteria:\nSystem Testing may be resumed under the following circumstances:\nWhen the exter
+nal dependency become available again.\n1.\nWhen a fix is successfully implemented, and the
+Testing Team (if independent) is notified to\n2.\ncontinue testing.
+1Regression TestTesting to confirm that a recent program or code change or software item ch
+ange has not adversely\naffected existing features. Regression Testing is nothing but a full or p
+artial selection of already executed\ntest cases which are re-executed to ensure existing functi
+onalities work fine.\nThe test cases that need to be rerun are identified, based on the impact an
+alysis captured in Bug\nReport and/or change request log\nIf regression testing is performed d
+ue to bug fix, then the failed test cases and the respective test\ncases of the System Architectu
+re IDs which are linked to failed Test cases ID chosen for\nregression.
+2Test Goals and\nMetrics to be\ncollected.The following metrics shall be collected during testi
+ng:\nNumber of System Architecture design elements coverage with Testcase\n1.\nNumber of
+System Integration Test cases executed.\n2.\nNumber of System Integration Test cases "pass
+ed".\n3.\nRefer Objective planning and Tracking doc for Test goals.(I-00347-01-01_MPT01.xls
+x)
+3Other Customer or\nproject specific\nrequirementsNA
+2.3 System Qualification Test Strategy:
+01
+0ScopeSystem qualification tests shall be performed for OBEVC Project
+to verify that all the system\nrequirements are implemented completely and correctly.\n \nNote:
+Type of testing will be Manual Testing\n System validation, Vehicle testing, Safety testing
+and Security testing are not in the\nscope.( I-00347-01-01_PMP01.doc- Sec 4 PDLC Table)
+1Test ObjectivesTo ensure that the integrated system is tested to provide evidence for compli
+ance with the system\nrequirements and that the system is ready for delivery.
+2Test ItemsPhase 1 -LV & Phase 1-LV_Enhancement01- LLC board, Control board, Resistive
+load, Auto\nTransformer, Power supply and Software Integrated System\nPhase 1-HV- LLC b
+oard, Control board, Resistive load, Grid board, Auto Transformer, Power supply
+8 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+and Software Integrated System
+01
+0Test InputSystem Requirements Specification \nI-00347-01-01_SysRS01 \nTested Integrate
+d System,\nSystem Qualification test plan \nI-00347-01-01_SysQTP01 \nRelease Plan (I-0034
+7-01-01_RP01.xlsx)
+1System\nQualification\nsequenceExecution of all positive and negative black box test cases
+developed based on the System\nRequirements.\nTesting will be carried out module / feature
+wise.\nPhase 1-LV & Phase 1-LV_Enhancement01:\n1. Connect Control board to LLC board t
+hrough J2-J2 connector\n2. Connect CAN-case/Pcan to control board through J12 connector\
+n3.Connect Resistive load at the output section of the LLC board and Grid board\n4. Open Tra
+ce 32 application in host PC, start run the code by browsing (. cmm file) location in the PC\nAN
+D s/w will be flashed to control card (J4 connector for DC) and Plugin into the board.\n5.Provid
+e 12v to control board & Provide 230v power supply to auto transformer\n6.Power up the board
+and check D33 Led is on (green color)\n7. connect the oscilloscope and probe on testing port
+pin to take the waveforms.\n8.Open canoe panel to send CAN messages and observed ack m
+essage in trace window.\n9.The CAN message and ack will be logged in log file.\n10.Update th
+e test plan with results and circulate to stake holder through mail & upload in SVN.\n11.Record
+the identified bug’s (if any) in bug report and share to the respective stake holders.\n12. First i
+ntermediate release of LV module test report will be shared to respective stakeholder.\nPhase
+1-HV:\n1. Connect Auto transformer to Grid board (HV Power Board) to vary i/p voltage betwe
+en 190V-250Vrms.\n2.Connect Grid board to Control board through Connectors J1-1 & J1-2\n3
+.Connect Control board to LLC board through J2-J2 connector\n4.Connect Grid board (HV Po
+wer board) to LLC board through J2-J2 connectors for LV charging\n5.Connect CAN-case/Pca
+n to control board through J12 connector\n6.Connect Resistive load at the output section of the
+LLC board and Grid board\n7. Open Trace 32 application in host PC, start run the code by bro
+wsing (. cmm file) location in the PC\nAND s/w will be flashed to control card (J4 connector for
+DC & J6 connector for AFC) and Plugin into the\nboard.\n8. Provide 12v to control board & Pro
+vide 230v power supply to auto transformer\n9. Power up the board and check D33 Led is on (
+green color)\n10. connect the oscilloscope and probe on testing port pin which is present outsi
+de the assembled box \nto take the waveforms.\n11.Open canoe panel to send can messages
+and observed ack message in trace window.\n12. The CAN message and ack will be in logge
+d in log file.\n13. Update the test plan with results and circulate to stake holder through mail &
+upload in SVN.\n14. Record the identified bug’s (if any) in bug report and share to the respectiv
+e stake holders.\n15. The related regression testing which covers the integration of LV and HV
+module will be carried out.\n16. Final release of test report will be shared to respective stakeh
+older.
+2Test EnvironmentSoftware Test Environment:\nFull System (All SW components integrated
+with HW/features) interfaced with Canoe panel (CAN license\non need basis)\nHardware Test
+environment:\nComplete hardware set up along with the external interfaces like RL Load, EVS
+E connector (SAEJ1772),\nAC source etc. for OBEVC testing.\nRefer Sys_Flashing_Procedur
+e
+3Test Entry/Exit\ncriteriaEntry criteria:\nThe availability of a test environment according to req
+uirements.
+9 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+The availability of verified integrated system (SW, HW and Mechanical)
+• The availability of baselined System Requirement Specification.
+• The availability of “. elf file” (firmware) for flashing the ECU.
+• The availability of tools, documentation (like HSI (Hardware-Software Interface), configuration
+parameters for System Qualification Testing.
+• The availability of Canoe Configuration File (with required. dbc file and simulation setup).
+Exit criteria:
+a. 100% test execution as per System Requirements
+b. 100% Test cases are passed.
+c. System Qualification Test report
+d. Traceability Report
+e. Updated Review Checklist & Review Log
+Note:
+if any Defects is reported will be handled by Problem Resolution Management.
+Justification should be provided if Test Execution Rate is less than 100%
+01
+0Types of TestsBelow tests shall be performed as part of the system Qualification test:\nFull
+Testing\n1.\nRandom Testing\n2.\nRegression testing\n3.
+1Design TechniquesThe following design techniques as defined in Test guidelines (Refer Ref
+erence document section) shall\nbe considered for designing the Qualification test cases:\nBo
+undary Value Analysis (BVA)\n1.\nError Based Testing (EB) /Fault injection based Testing\n2.\
+nEquivalence Partitioning (as Applicable)\n3.\nInput Output Domain (IOD).\n4.
+2Suspension and\nResumption CriteriaIf issues are detected, all the test cases and test script
+s will run. However, the test phase shall be\nsuspended / aborted if:\nSeveral critical failures ar
+e observed.\n1.\nThe test environment has issues.\n2.\nUnavailability of related or external de
+pendency during system Qualification test execution like Test\n3.\nbench capability.\nWhen a
+defect is introduced that cannot allow any further testing.\n4.\nResumption criteria:\nSystem Te
+sting may be resumed under the following circumstances:\nWhen the external dependency bec
+ome available again.\n1.\nWhen a fix is successfully implemented, and the Testing Team (if in
+dependent) is notified to\n2.\ncontinue testing
+3Regression TestTesting to confirm that a recent program or code change or software item ch
+ange has not adversely\naffected existing features. Regression Testing is nothing but a full or
+partial selection of already executed\ntest cases which are re-executed to ensure existing funct
+ionalities work fine.\nThe test cases that need to be rerun are identified, based on the impact a
+nalysis captured in Bug\nReport and/ or based on Change Request log\nIf regression testing i
+s performed due to bug fix, then the failed test cases and the respective test\ncases of the Syst
+em Requirement IDs which are linked to failed Test cases ID chosen for
+10 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+regression.
+01
+0Test Goals and\nMetrics to be\ncollected.The following metrics shall be collected during testi
+ng:\nNumber of System Requirements coverage with Testcase\n1.\nNumber of System Qualifi
+cation Test cases executed.\n2.\nNumber of System Qualification Test cases "passed".\n3.\nR
+efer Objective planning and Tracking doc for Test Goals.(I-00347-01-01_MPT01.xlsx)
+1Other Customer or\nproject specific\nrequirementsNA
+3 Release based Testing.
+Based on the test planning for the specific release, the test cases shall be prioritized and selected for various system tests and
+the release specific test plans (System Integration Test Plan, System Qualification Test Plan).
+01234567
+0Sl.\nNoSystem ReleaseObjective of the\nReleaseLevel of\nTestingTypes of\nTestsTest\nC
+overageSelection of\nTest CasesType of Release\n(Intermediate/ \nInternal/Final)
+11System Release 1.0 for\nphase 1-LVInitial system\nRelease is intended\nas first release to\
+ndemonstrate the\nIntegrated system\nelements and basic\nfunctionality of the\nsystem.\n(HW/
+Mech – alpha1\nprototype &\nSW release 1) after\ncompletion of\nsystem qualification\ntesting
+of LV\nmodule.System\nIntegration\nTestingFull System\nintegration\ntest100%\nrequirement
+s\nof the total\nrequirements\nare to be\ntested in the\nscope of the\nrelease.List the\nCompon
+ents\nintegrated\nas part of\nthis release\nand select\ntest cases\naccordingly\nfor testing.\nNo
+te:\nNot\nTested/Not\napplicable:\nsome of the\ntestcase will\nbe marked\nas Not\nTested/Not\
+nApplicable\nwhich will be\ntested in HV\nPhaseIntermediate
+22System Release 1.0 for\nphase 1-LVInitial System\nRelease is intended\nto demonstrate th
+e\nfirst set of system\nfeatures developed\n& HW/Mech\nprototype\n(HW/Mech-alpha 1\nprotot
+ype & SW\nrelease 1) (Bug fixedSystem\nQualification\nTestingFull System\nQualification\nte
+st100%\nrequirements\nof the total\nrequirements\nare to be\ntested in the\nscope of the\nrele
+ase.List the\nComponents\nintegrated\nas part of\nthis release\nand select\ntest cases\naccor
+dingly\nfor testing.\nNote:Intermediate
+11 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+SW in case of any Not
+bugs in System Tested/Not
+Integration) applicable:
+some of the
+testcase will
+be marked
+as Not
+Tested/Not
+Applicable
+which will be
+tested in HV
+Phase
+01234567
+03System Release 3.0 for\nphase 1-LV (Increased\nTest Coverage Report)Release is intende
+d\nto demonstrate the\nIntegrated system\nelements and basic\nfunctionality of the\nsystem.\n(
+HW/Mech – alpha1\nprototype &\nSW release 1) after\ncompletion of\nsystem qualification\ntes
+ting of LV moduleSystem\nIntegration\nTestingFull System\nintegration\ntest100%\nrequirem
+ents\nof the total\nrequirements\nare to be\ntested in the\nscope of the\nreleaseList the\nComp
+onents\nintegrated\nas part of\nthis release\nand select\ntest cases\naccordingly\nfor testing.\n
+Note:\nNot\nTested/Not\napplicable:\nsome of the\ntestcase will\nbe marked\nas Not\nTested/
+Not\nApplicable\nwhich will be\ntested in HV\nPhaseIntermediate
+14System Release 3.0 for\nphase 1-LV(Increased\nTest Coverage Report)Release is intende
+d\nto demonstrate the\nfirst set of system\nfeatures developed\n& HW/Mech\nprototype\n(HW/
+Mech-alpha 1\nprototype & SW\nrelease 1) (Bug fixed\nSW in case of any\nbugs in System\nInt
+egration)System\nQualification\nTestingFull System\nQualification\ntest100%\nrequirements\
+nof the total\nrequirements\nare to be\ntested in the\nscope of the\nreleaseList the\nCompone
+nts\nintegrated\nas part of\nthis release\nand select\ntest cases\naccordingly\nfor testing.\nNot
+e:\nNot\nTested/Not\napplicable:\nsome of the\ntestcase will\nbe marked\nas Not\nTested/Not\
+nApplicable\nwhich will be\ntested in HVIntermediate
+12 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+Phase
+01234567
+05.System Release 4.0 for\nphase 1-LV-\nEnchancement01(Report\nfor New Implementation\
+nof CR)Release is intended\nto demonstrate the\nIntegrated system\nelements and basic\nfun
+ctionality of the\nsystem. [Including\nCR changes]\n(HW/Mech – alpha1\nprototype &\nSW rele
+ase 2)System\nIntegration\nTestingFull System\nintegration\ntest100%\nrequirements\nof the
+total\nrequirements\nare to be\ntested in the\nscope of the\nreleaseList the\nComponents\nint
+egrated\nas part of\nthis release\nand select\ntest cases\naccordingly\nfor testing.\nNote:\nNot\
+nTested/Not\napplicable:\nsome of the\ntestcase will\nbe marked\nas Not\nTested/Not\nApplica
+ble\nwhich will be\ntested in HV\nPhaseFinal
+16System Release 3.0 for\nphase 1-LV-\nEnchancement01(Report\nfor New Implementation\n
+of CR)Release is intended\nto demonstrate set\nof system features\ndeveloped [Including\nCR
+changes] &\nHW/Mech prototype\n(HW/Mech-alpha 1\nprototype & SW\nrelease 2) (Bug fixed\
+nSW in case of any\nbugs in System\nIntegration)System\nQualification\nTestingFull System\n
+Qualification\ntest100%\nrequirements\nof the total\nrequirements\nare to be\ntested in the\nsc
+ope of the\nrelease\nrequirements\nto be testedList the\nComponents\nintegrated\nas part of\n
+this release\nand select\ntest cases\naccordingly\nfor testing.\nNote:\nNot\nTested/Not\napplic
+able:\nsome of the\ntestcase will\nbe marked\nas Not\nTested/Not\nApplicable\nwhich will be\nt
+ested in HV\nPhaseFinal
+27System Release 2.0 for\nphase 1-HVRelease is intended\nas first release to\ndemonstrate
+the\nIntegrated system\nelements and basic\nfunctionality of the\nsystem.\n(HW/Mech – alpha1
+\nprototype &System\nIntegration\nTestingFull System\nintegration\ntest100%\nrequirements\
+nof the total\nrequirements\nare to be\ntested in the\nscope of the\nreleaseList the\nCompone
+nts\nintegrated\nas part of\nthis release\nand select\ntest cases\naccordingly\nfor testingFinal
+13 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+SW release 2)
+01234567
+08System Release 2.0 for\nphase 1-HVRelease is intended\nto demonstrate the\nfirst set of S
+ystem\nfeatures developed\n& HW/Mech\nPrototype\n(HW/Mech – alpha1\nprototype &\nSW re
+lease 1) (Bug\nfixed SW in case of\nany bugs in\nSystem qualification)System\nQualification\n
+TestingFull System\nQualification\ntest100%\nrequirements\nof the total\nrequirements\nare t
+o be\ntested in the\nscope of the\nreleaseList the\nComponents\nintegrated\nas part of\nthis re
+lease\nand select\ntest cases\naccordingly\nfor testingFinal
+4 Support Process
+4.1 Quality Assurance
+A quality assurance audit is performed by an independent Quality Assurance Auditor according to the
+AUT_QA_01P_Quality_Assurance_Procedure. The QA will record the summary of the quality assurance activities and non-
+conformances found, in AUT_QA_01F_Quality_Assurance_Plan_Template
+4.2 Peer Reviews
+A peer review is performed for the different work-products generated in the project. The work-products which need to be reviewed
+are planned in Project Management Plan. The peer reviews are conducted as per the peer reviews process defined in the
+C_VER_01P_ Review_Procedure.
+4.3 Risk Management
+The risks envisaged at the beginning of the project shall be used as input for the test strategy and detailed test planning. The
+risks of the testing activities are captured and tracked in C_RSK_01F Risk Management Plan. Response actions such as
+mitigation plans and contingency plans shall be planned in C_RSK_01F Risk Management Plan
+4.4 Defect Management
+Problems or failures occurring during the development and testing of the system shall be identified, documented in the
+AUT_PRM_01F_Bug_Report.xlsm. The identified problems are assessed, tracked, and corrected as per the
+AUT_PRM_01P_Problem_Resolution_Management_Procedure.
+5 Performing Testing & Communication of Test Results
+0123
+0CommunicationMethodFrequencyAuthority for approval
+1Communication of test plans,\ntest cases and test reportsEmail intimation to all\nrelevant sta
+keholders.Documents are baselined\n(as per PMP)System Test Lead\n(For test products and
+processes)
+14 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+found.
+6 Deliverables to the Customer
+At each of the releases to Customer, the following shall be provided:
+1. System Integration Strategy
+2. System Integration Test Strategy, System Integration Test Plan and Test Report.
+3. System Qualification Test Strategy, System Qualification Test Plan and Test Report.
+4. Bug Report.
+7 Lessons Learnt & Best Practices
+Lesson Learnt: Detailed self-defined checklist for reference will be made available to do self-review.
+Training/overview will be conducted from SME's to maintain uniformity while writing test cases.
+8 Data Collection & Analysis
+Data on review findings (Errors) of System Test Plans below, shall be collected and analyzed.
+System Integration Test Plan
+System Qualification Test Plan
+Data on bugs found during different levels of System Tests below, shall be collected and analyzed.
+System Integration Test Plan
+System Qualification Test Plan
+9 Project Specific Skill Matrix
+The following table contains the project team skills about general functions to be tested.
+Note:
+High skill level = 3 (Trainer, Specialist, Expertise)
+Medium skill level = 2 (Trained, Hands-on experience)
+Low skill level = 1 (Needs training)
+01234567
+0Engineer\nNameNisargNisargSarvananSarvananRoopaRoopa
+1Skill levelRecommendedCurrentRecommendedCurrentRecommendedCur
+rentTraining\nNeed
+2CAN Protocol333232No
+3Bootloader332222No
+4SAE J1772\nConnector332222No
+5HV/LV Battery222222No
+6Diagnostic322222No
+15 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+Temperature 2 2 2 2 2 2 No
+Sensor
+01234567
+0Power\nManagement332222No
+1Microcontroller322222No
+10 Reference Documents
+012
+0Document Id.Document NameProject\nType
+1C_CM_01PConfiguration Management Procedure\nC_CM_01P_Configuration Manageme
+nt Procedure.docxAll
+2C_VER_01PReview Procedure\nC_VER_01P Review Procedure.docAll
+3EMB_VER_01GTesting Guidelines\nEMB_VER_01G.docAutomotive
+4AUT_SYS_02FSystem Requirements Traceability TemplateAutomotive
+5AUT_SYS_06FSystem Test Strategy (Integration & Qualification)\nAUT_SYS_06F_System
+_Test_Strategy(Integration, Integration Test & Qualification\nTest).docxAutomotive
+6AUT_SYS_07FSystem Qualification Test Plan and Results Template\nAUT_SYS_07F_Sys
+tem_Qualification_Test_plan_and_Results.xlsmAutomotive
+7AUT_SYS_08FSystem Qualification Test plan and Results Review Checklist\nAUT_SYS_0
+8F_System_Qualification_Test_plan_and_Results_Review_checklist.xlsxAutomotive
+8AUT_SYS_09FSystem Integration Test plan and Results Template\nAUT_SYS_09F_Syste
+m_Integration_Test_plan_and_Results.xlsmAutomotive
+9AUT_SYS_10FSystem Integration Test plan and Results Review Checklist\nAUT_SYS_10
+F_System_Integration_Test_Plan_and_Results_ Review_Checklist.xlsxAutomotive
+10AUT_PRM_01PProblem Resolution Management Procedure\nAUT_PRM_01P_Problem_
+Resolution_Management_Procedure_1.3.docAutomotive
+11AUT_PRM_01FBug Report Template\nAUT_PRM_01F_Bug_Report.xlsxAutomotive
+12AUT_QA_01PQuality Assurance Procedure\nAUT_QA_01P_Quality_Assurance_Procedu
+re.docAutomotive
+13I-00347-01-01-RP01Release Plan\nI-00347-01-01_RP01.xlsxAutomotive
+14I-00347-01-01_SysAD01System Architecture Document\nI-00347-01-01_SysAD01Autom
+otive
+15I-00347-01-01_SysRS01System Requirement Document\nI-00347-01-01_SysRS01Auto
+motive
+16I-00347-01-01_SysITP01System Integration Test Plan\nI-00347-01-01_SysITP01Automo
+tive
+17I-00347-01-01_SysQTP01System Qualificaiton Test Plan\nI-00347-01-01_SysQTP01Aut
+omotive
+18I-00347-01-01_PMP01Project Management PlanAutomotive
+16 | Page Polarion ALM 19 2023-10-11 14:37OBC (Onboard Charger)
+I-00347-01-01_SysTS01 (rev. 48378)
+I-00347-01-01_PMP01.doc
+0 1 2 Automotive
+0I-00347-01-01_MPT01Objective planning and Tracking\nI-00347-01-01_MPT01.xl
+10.1 Glossary of terms used.
+<Abbreviations and other technical terms listing with explanation >
+01
+0AbbreviationsDetails
+1AFCActive front end converter
+2APDActive power decoupling
+3AUTAutomotive
+4CCommon
+5CANController Area Network
+6CMConfiguration Management
+7CRChange Request
+8ECUElectronic Controller Unit
+9EMBEmbedded
+10EVElectric Vehicle
+11HVHigh Voltage
+12HWHardware
+13LTTSL&T Technology Services
+14LVLow Voltage
+15NANot Applicable
+16PMPProject Management Plan
+17PRMProblem Resolution Management
+18QAQuality Assurance Team
+19QMSQuality Management System
+20RSKRisk
+21SAESociety of Automotive Engineers
+22SMRSenior Management Review
+23SWSoftware
+24SYSSystem
+25VERVerification
+17 | Page Polarion ALM 19 2023-10-11 14:37
